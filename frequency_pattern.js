@@ -14,17 +14,34 @@
 
 // return true if two arrays are same, if not return false.
 
-const same = (arr1, arr2) => {
-  if (arr1.length != arr2.length) return false;
+// const same = (arr1, arr2) => {
+//   if (arr1.length != arr2.length) return false;
 
-  return (
-    JSON.stringify(arr2) ===
-    JSON.stringify(
-      arr1.map((cur) => {
-        return cur ** 2;
-      })
-    )
-  );
+//   return (
+//     JSON.stringify(arr2) ===
+//     JSON.stringify(
+//       arr1.map((cur) => {
+//         return cur ** 2;
+//       })
+//     )
+//   );
+// };
+
+// console.log(same([2, 3, 4], [4, 9, 19]));
+
+//********************************
+
+const same = (arr1, arr2) => {
+  if (arr1.length !== arr2.length) return false;
+
+  for (let current of arr1) {
+    let curIndex = arr2.indexOf(current ** 2);
+    if (curIndex === -1) return false;
+    arr2.splice(curIndex, 1);
+    console.log("aar1: " + arr1);
+    console.log(`arr2: ${arr2}`);
+  }
+  return true;
 };
 
-console.log(same([2, 3, 4], [4, 9, 19]));
+console.log(same([2, 3, 4], [9, 16, 4]));

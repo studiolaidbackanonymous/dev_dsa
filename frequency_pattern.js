@@ -4,7 +4,7 @@
 // if array1 is [2,3,4] and array2 is [4,9,16]
 // the frequency of values must be same (doubt)
 
-//algo**********************************
+//***************approach 1*******************
 
 //let the function accept two arrays
 //store the arrays as arr1 and arr2
@@ -29,7 +29,8 @@
 
 // console.log(same([2, 3, 4], [4, 9, 19]));
 
-//********************************
+//***************approach 2******************
+// O(n^2)
 
 const same = (arr1, arr2) => {
   if (arr1.length !== arr2.length) return false;
@@ -37,9 +38,8 @@ const same = (arr1, arr2) => {
   for (let current of arr1) {
     let curIndex = arr2.indexOf(current ** 2);
     if (curIndex === -1) return false;
+    //reduce computation
     arr2.splice(curIndex, 1);
-    console.log("aar1: " + arr1);
-    console.log(`arr2: ${arr2}`);
   }
   return true;
 };
